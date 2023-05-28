@@ -37,7 +37,7 @@ body * {
 #container {
   width: 100%;
   max-width: 588px;
-  margin: 56px auto 0px;
+  margin: 56px auto 10px;
 }
 
 #profile {
@@ -93,7 +93,7 @@ ul {
 
   display: flex;
   flex-direction: column;
-  padding: 24px 0px;
+  padding: 24px 16px;
   gap: 16px;
 }
 
