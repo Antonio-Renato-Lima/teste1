@@ -1,0 +1,8 @@
+option batch on
+option confirm off
+open sftp://sftp_sky_sp:Alm@v1v@Sky@sftp.almavivadobrasil.com.br
+cd "/SKY/MESA DE COMANDO"
+cd option transfer binary
+get "LigacoesRechamadaALMAVIVASAC_202303*"
+close
+exit 
