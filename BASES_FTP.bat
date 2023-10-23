@@ -1,26 +1,19 @@
-del "C:\Users\bi\Desktop\SKY_SFTP\LigacoesRechamadaALMAVIVASAC*.txt"
-del "C:\Users\bi\Desktop\SKY_SFTP\extracaoLigacoesRechamadaALMAVIVASAC*.txt"
-del "C:\Users\bi\Desktop\SKY_SFTP\arquivo.txt"
+'del "C:\Users\bi\Desktop\SKY_SFTP\LigacoesRechamadaALMAVIVASAC*.txt"
+'del "C:\Users\bi\Desktop\SKY_SFTP\extracaoLigacoesRechamadaALMAVIVASAC*.txt"
+'del "C:\Users\bi\Desktop\SKY_SFTP\arquivo.txt"
 
-cscript DATA.vbs > %temp%\DATA.txt
-for /F  %%A in (%temp%\DATA.txt) do SET DT=%%A
-
+cscript DATA2.vbs > %temp%\DATATIM.txt
+for /F  %%A in (%temp%\datatim.txt) do SET DT=%%A
 echo option batch on>> arquivo.txt
 echo option confirm off>> arquivo.txt
-echo open sftp://sftp_sky_sp:Alm@v1v@Sky@sftp.almavivadobrasil.com.br>> arquivo.txt
-echo cd "/SKY/MESA DE COMANDO">> arquivo.txt
+echo open sftp://sftp_tim:ZMq55c2d@sftp.almavivadobrasil.com.br>> arquivo.txt
+echo cd "/<root>">> arquivo.txt
 echo cd option transfer binary>> arquivo.txt
-echo get "LigacoesRechamadaALMAVIVASAC_%DT%*">> arquivo.txt
+echo put "\\mg0000bd2007\Arquivos\Carregamento_Bulk\MIS\TimReceptivo\TIM_SFTP\ALMVV_%DT%.txt">> arquivo.txt
 echo close>> arquivo.txt
 echo exit>> arquivo.txt 
 
 
+
 "C:\Users\bi\Desktop\WinSCP\WinSCP.exe" /script=arquivo.txt
-
-for %%i in (C:\Users\bi\Desktop\SKY_SFTP\LigacoesRechamadaALMAVIVASAC_*.txt) do type %%i >> "C:\Users\bi\Desktop\SKY_SFTP\extracaoLigacoesRechamadaALMAVIVASAC.txt"
-cd C:\Users\bi\PycharmProjects\pythonProject
-python SftpSky.py
-
-
-
 
